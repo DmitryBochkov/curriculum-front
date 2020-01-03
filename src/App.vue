@@ -1,22 +1,23 @@
 <template>
   <v-app>
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/curriculum/upsert">Create</router-link>
-    </div>
+    <TopNav />
 
     <v-content>
-      <router-view></router-view>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-
+import TopNav from '@/components/TopNav'
 export default {
   name: 'App',
 
-  components: {},
+  components: {
+    TopNav
+  },
 
   data: () => ({
     //
