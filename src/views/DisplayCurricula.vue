@@ -1,6 +1,6 @@
 <template>
 
-  <v-row no-gutters class="home-page">
+  <v-row no-gutters class="display-curricula-page">
     <v-col
       lg="6"
       offset-lg="3"
@@ -14,12 +14,14 @@
 
       <div class="curricula-list">
         <v-card
-          class="mx-auto"
+          class="mx-auto my-4"
+          v-for="curriculum in curriculaData" :key="curriculum.id"
           >
-          <v-card-title class="headline">Curriculum 01</v-card-title>
+          <v-card-title class="headline">
+            <router-link :to="`/curricula/${curriculum.id}`">{{ curriculum.name }}</router-link>
+          </v-card-title>
           <v-card-text>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, asperiores!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, asperiores!</p>
+            {{ curriculum.description }}
           </v-card-text>
         </v-card>
       </div>
@@ -28,10 +30,15 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex'
 export default {
   name: 'DisplayCurricula',
   components: {
+  },
+  computed: {
+    ...mapState([
+      'curriculaData'
+    ])
   }
 }
 </script>

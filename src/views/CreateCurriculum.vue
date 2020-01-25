@@ -113,7 +113,7 @@
 
 <script>
 export default {
-  name: 'UpsertCurriculum'
+  name: 'CreateCurriculum'
 
 }
 </script>
