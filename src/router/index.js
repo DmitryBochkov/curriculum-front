@@ -19,14 +19,14 @@ const routes = [
     component: DisplayCurricula
   },
   {
-    path: '/curricula/:id',
-    name: 'curriculum',
-    component: DisplayCurriculum
-  },
-  {
     path: '/curricula/create',
     name: 'createCurriculum',
     component: CreateCurriculum
+  },
+  {
+    path: '/curricula/:id',
+    name: 'curriculum',
+    component: DisplayCurriculum
   }
 ]
 

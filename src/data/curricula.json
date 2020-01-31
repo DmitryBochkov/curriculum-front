@@ -1,10 +1,1328 @@
-[{"id":"b1d356c5-4b1b-4709-bdb2-5ec5846c57d7","name":"Steller sea lion","goal":"Extended","description":"Alteration of Right Upper Extremity with Autologous Tissue Substitute, Percutaneous Approach","sections":[{"name":"Konklab","projects":[{},{}],"resourses":[{},{},{},{}]},{"name":"Ronstring","projects":[{},{},{}],"resourses":[{},{},{},{}]},{"name":"Voltsillam","projects":[{},{},{}],"resourses":[{},{},{},{},{},{},{}]}],"createdAt":"18:40","updatedAt":"0:24"},
-{"id":"9f2f1228-7f91-463f-a73d-a57138d869db","name":"Galapagos albatross","goal":"Networked","description":"Beam Radiation of Brain using Neutron Capture","sections":[{"name":"Sub-Ex","projects":[{},{}],"resourses":[{},{},{},{},{},{},{}]},{"name":"Fixflex","projects":[{},{},{}],"resourses":[{},{},{},{},{},{},{}]},{"name":"Otcom","projects":[{},{}],"resourses":[{},{},{},{},{}]},{"name":"Ronstring","projects":[{},{}],"resourses":[{},{},{},{},{}]},{"name":"Mat Lam Tam","projects":[{},{},{}],"resourses":[{},{},{},{}]}],"createdAt":"5:41","updatedAt":"12:44"},
-{"id":"e20e7335-b89f-45c7-bf8f-dd906a4b8f16","name":"Goose, knob-nosed","goal":"Pre-emptive","description":"Removal of Infusion Device from Right Wrist Joint, Percutaneous Endoscopic Approach","sections":[{"name":"Domainer","projects":[{},{},{}],"resourses":[{},{},{},{},{}]},{"name":"Redhold","projects":[{},{},{}],"resourses":[{},{},{},{}]},{"name":"Redhold","projects":[{},{}],"resourses":[{},{},{},{},{},{}]}],"createdAt":"4:11","updatedAt":"2:23"},
-{"id":"18f92fb0-e0c1-47f3-bba2-dbe138a76616","name":"Cape wild cat","goal":"Switchable","description":"Detachment at Right 1st Toe, Complete, Open Approach","sections":[{"name":"Holdlamis","projects":[{},{}],"resourses":[{},{},{},{},{},{}]},{"name":"Sonair","projects":[{},{}],"resourses":[{},{},{},{},{}]},{"name":"Treeflex","projects":[{},{},{}],"resourses":[{},{},{},{},{}]}],"createdAt":"14:45","updatedAt":"17:51"},
-{"id":"9f5df555-cebb-44a7-a328-3c03d46fa03b","name":"Wallaroo, common","goal":"eco-centric","description":"Magnetic Resonance Imaging (MRI) of Left Hand/Finger Joint","sections":[{"name":"Lotlux","projects":[{},{},{}],"resourses":[{},{},{},{},{},{},{}]},{"name":"Keylex","projects":[{},{},{}],"resourses":[{},{},{},{},{},{}]},{"name":"Stronghold","projects":[{},{}],"resourses":[{},{},{},{},{},{}]},{"name":"Tresom","projects":[{},{},{}],"resourses":[{},{},{},{},{},{},{}]},{"name":"Y-Solowarm","projects":[{},{},{}],"resourses":[{},{},{},{}]}],"createdAt":"19:26","updatedAt":"11:49"},
-{"id":"a33a1940-9638-47b8-9ba8-31189aa6afdf","name":"Mouflon","goal":"encoding","description":"Excision of Right Lower Leg Tendon, Percutaneous Approach, Diagnostic","sections":[{"name":"Lotstring","projects":[{},{},{}],"resourses":[{},{},{},{},{},{}]},{"name":"Quo Lux","projects":[{},{},{}],"resourses":[{},{},{},{},{}]},{"name":"Home Ing","projects":[{},{},{}],"resourses":[{},{},{},{},{}]}],"createdAt":"10:57","updatedAt":"5:32"},
-{"id":"d9ec4f1b-4836-49ab-a7c4-2b64cd84c691","name":"Black-collared barbet","goal":"logistical","description":"Replacement of Right Posterior Tibial Artery with Autologous Tissue Substitute, Open Approach","sections":[{"name":"Zontrax","projects":[{},{}],"resourses":[{},{},{},{}]},{"name":"Biodex","projects":[{},{}],"resourses":[{},{},{},{},{}]},{"name":"Trippledex","projects":[{},{},{}],"resourses":[{},{},{},{},{},{}]},{"name":"Stronghold","projects":[{},{}],"resourses":[{},{},{},{},{},{},{}]},{"name":"Aerified","projects":[{},{}],"resourses":[{},{},{},{},{},{}]}],"createdAt":"2:11","updatedAt":"18:56"},
-{"id":"8b9327f9-5731-4880-966e-d11f946cc566","name":"Ring dove","goal":"reciprocal","description":"Replacement of Nasal Turbinate with Nonautologous Tissue Substitute, Via Natural or Artificial Opening","sections":[{"name":"Rank","projects":[{},{}],"resourses":[{},{},{},{},{}]},{"name":"Y-Solowarm","projects":[{},{}],"resourses":[{},{},{},{},{}]},{"name":"Voltsillam","projects":[{},{},{}],"resourses":[{},{},{},{},{}]},{"name":"Y-find","projects":[{},{},{}],"resourses":[{},{},{},{},{},{},{}]}],"createdAt":"10:22","updatedAt":"0:59"},
-{"id":"d4a43b95-9713-4ac5-ae51-794ef9afa984","name":"Gorilla, western lowland","goal":"optimizing","description":"Extirpation of Matter from Left Brachial Vein, Percutaneous Approach","sections":[{"name":"Otcom","projects":[{},{},{}],"resourses":[{},{},{},{},{},{},{}]},{"name":"Span","projects":[{},{}],"resourses":[{},{},{},{}]},{"name":"Y-Solowarm","projects":[{},{}],"resourses":[{},{},{},{}]},{"name":"Stim","projects":[{},{},{}],"resourses":[{},{},{},{},{},{},{}]},{"name":"Tampflex","projects":[{},{},{}],"resourses":[{},{},{},{}]}],"createdAt":"12:40","updatedAt":"9:21"},
-{"id":"a83a6409-da0b-4ad8-9e45-9bee8a547735","name":"Rattlesnake, dusky","goal":"knowledge base","description":"Drainage of Right Upper Eyelid, External Approach","sections":[{"name":"Greenlam","projects":[{},{}],"resourses":[{},{},{},{}]},{"name":"Subin","projects":[{},{}],"resourses":[{},{},{},{},{},{}]},{"name":"Matsoft","projects":[{},{}],"resourses":[{},{},{},{},{}]},{"name":"Holdlamis","projects":[{},{}],"resourses":[{},{},{},{}]},{"name":"Fintone","projects":[{},{}],"resourses":[{},{},{},{},{}]}],"createdAt":"2:38","updatedAt":"23:52"}]
+[
+   {
+      "id":"b1d356c5-4b1b-4709-bdb2-5ec5846c57d7",
+      "name":"Steller sea lion",
+      "goal":"Extended",
+      "description":"Alteration of Right Upper Extremity with Autologous Tissue Substitute, Percutaneous Approach",
+      "sections":[
+         {
+            "name":"Konklab",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               }
+            ]
+         },
+         {
+            "name":"Ronstring",
+            "projects":[
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              }
+            ],
+            "resourses":[
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               }
+            ]
+         },
+         {
+            "name":"Voltsillam",
+            "projects":[
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              }
+            ],
+            "resourses":[
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               }
+            ]
+         }
+      ],
+      "createdAt":"18:40",
+      "updatedAt":"0:24"
+   },
+   {
+      "id":"9f2f1228-7f91-463f-a73d-a57138d869db",
+      "name":"Galapagos albatross",
+      "goal":"Networked",
+      "description":"Beam Radiation of Brain using Neutron Capture",
+      "sections":[
+         {
+            "name":"Sub-Ex",
+            "projects":[
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              }
+            ],
+            "resourses":[
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               }
+            ]
+         },
+         {
+            "name":"Fixflex",
+            "projects":[
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              }
+            ],
+            "resourses":[
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               }
+            ]
+         },
+         {
+            "name":"Otcom",
+            "projects":[
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              }
+            ],
+            "resourses":[
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               }
+            ]
+         },
+         {
+            "name":"Ronstring",
+            "projects":[
+              {
+                "name": "Placeholder project name"
+              },
+              {
+                "name": "Placeholder project name"
+              }
+            ],
+            "resourses":[
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               },
+               {
+                 "name": "Placeholder name"
+               }
+            ]
+         },
+         {
+            "name":"Mat Lam Tam",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"5:41",
+      "updatedAt":"12:44"
+   },
+   {
+      "id":"e20e7335-b89f-45c7-bf8f-dd906a4b8f16",
+      "name":"Goose, knob-nosed",
+      "goal":"Pre-emptive",
+      "description":"Removal of Infusion Device from Right Wrist Joint, Percutaneous Endoscopic Approach",
+      "sections":[
+         {
+            "name":"Domainer",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Redhold",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Redhold",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"4:11",
+      "updatedAt":"2:23"
+   },
+   {
+      "id":"18f92fb0-e0c1-47f3-bba2-dbe138a76616",
+      "name":"Cape wild cat",
+      "goal":"Switchable",
+      "description":"Detachment at Right 1st Toe, Complete, Open Approach",
+      "sections":[
+         {
+            "name":"Holdlamis",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Sonair",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Treeflex",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"14:45",
+      "updatedAt":"17:51"
+   },
+   {
+      "id":"9f5df555-cebb-44a7-a328-3c03d46fa03b",
+      "name":"Wallaroo, common",
+      "goal":"eco-centric",
+      "description":"Magnetic Resonance Imaging (MRI) of Left Hand/Finger Joint",
+      "sections":[
+         {
+            "name":"Lotlux",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Keylex",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Stronghold",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Tresom",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Y-Solowarm",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"19:26",
+      "updatedAt":"11:49"
+   },
+   {
+      "id":"a33a1940-9638-47b8-9ba8-31189aa6afdf",
+      "name":"Mouflon",
+      "goal":"encoding",
+      "description":"Excision of Right Lower Leg Tendon, Percutaneous Approach, Diagnostic",
+      "sections":[
+         {
+            "name":"Lotstring",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Quo Lux",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Home Ing",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"10:57",
+      "updatedAt":"5:32"
+   },
+   {
+      "id":"d9ec4f1b-4836-49ab-a7c4-2b64cd84c691",
+      "name":"Black-collared barbet",
+      "goal":"logistical",
+      "description":"Replacement of Right Posterior Tibial Artery with Autologous Tissue Substitute, Open Approach",
+      "sections":[
+         {
+            "name":"Zontrax",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Biodex",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Trippledex",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Stronghold",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Aerified",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"2:11",
+      "updatedAt":"18:56"
+   },
+   {
+      "id":"8b9327f9-5731-4880-966e-d11f946cc566",
+      "name":"Ring dove",
+      "goal":"reciprocal",
+      "description":"Replacement of Nasal Turbinate with Nonautologous Tissue Substitute, Via Natural or Artificial Opening",
+      "sections":[
+         {
+            "name":"Rank",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Y-Solowarm",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Voltsillam",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Y-find",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"10:22",
+      "updatedAt":"0:59"
+   },
+   {
+      "id":"d4a43b95-9713-4ac5-ae51-794ef9afa984",
+      "name":"Gorilla, western lowland",
+      "goal":"optimizing",
+      "description":"Extirpation of Matter from Left Brachial Vein, Percutaneous Approach",
+      "sections":[
+         {
+            "name":"Otcom",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Span",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Y-Solowarm",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Stim",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Tampflex",
+            "projects":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"12:40",
+      "updatedAt":"9:21"
+   },
+   {
+      "id":"a83a6409-da0b-4ad8-9e45-9bee8a547735",
+      "name":"Rattlesnake, dusky",
+      "goal":"knowledge base",
+      "description":"Drainage of Right Upper Eyelid, External Approach",
+      "sections":[
+         {
+            "name":"Greenlam",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Subin",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Matsoft",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Holdlamis",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         },
+         {
+            "name":"Fintone",
+            "projects":[
+               {
+
+               },
+               {
+
+               }
+            ],
+            "resourses":[
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               },
+               {
+
+               }
+            ]
+         }
+      ],
+      "createdAt":"2:38",
+      "updatedAt":"23:52"
+   }
+]
