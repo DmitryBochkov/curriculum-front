@@ -8,7 +8,7 @@
     >
       <div class="page-header">
         <h1>Create Curriculum</h1>
-        <v-btn>Save</v-btn>
+        <v-btn @click="saveCurriculum">Save</v-btn>
       </div>
 
       <v-form class="upsert-form">
@@ -17,7 +17,7 @@
             <v-subheader>Name</v-subheader>
           </v-col>
           <v-col cols="9">
-            <v-text-field />
+            <v-text-field v-model="formData.name" />
           </v-col>
         </v-row>
         <v-row>
@@ -25,7 +25,7 @@
             <v-subheader>Goal</v-subheader>
           </v-col>
           <v-col cols="9">
-            <v-text-field />
+            <v-text-field v-model="formData.goal" />
           </v-col>
         </v-row>
         <v-row>
@@ -34,6 +34,7 @@
             <v-textarea
               solo
               name="description"
+              v-model="formData.description"
             />
           </v-col>
         </v-row>
@@ -42,8 +43,9 @@
             <div class="curricula-list">
               <v-card
                 class="mx-auto"
+                v-for="(section, k) in sections" :key="k"
                 >
-                <v-card-title class="headline">Section 01</v-card-title>
+                <v-card-title class="headline">Section {{ k + 1 }}</v-card-title>
                 <v-card-text>
                   <v-row no-gutters>
                     <v-col cols="3">
@@ -103,7 +105,7 @@
 
         <v-row>
           <v-col cols="12">
-            <v-btn>Add Section</v-btn>
+            <v-btn @click="addSection">Add Section</v-btn>
           </v-col>
         </v-row>
       </v-form>
@@ -112,9 +114,38 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-  name: 'CreateCurriculum'
-
+  name: 'CreateCurriculum',
+  data() {
+    return {
+      formData: {
+        name: '',
+        description: '',
+        goal: '',
+      },
+      sections: [{
+        name: '',
+        goal: '',
+        resourses: [],
+        projects: [],
+      }]
+    }
+  },
+  methods: {
+    ...mapActions(['postCurriculum']),
+    saveCurriculum() {
+      this.postCurriculum(this.formData)
+    },
+    addSection() {
+      this.sections.push({
+        name: '',
+        goal: '',
+        resourses: [],
+        projects: [],
+      })
+    },
+  },
 }
 </script>
 
