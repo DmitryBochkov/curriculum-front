@@ -26,7 +26,7 @@
                  <v-list-item-group
                    multiple
                  >
-                   <v-list-item v-for="(resourse, i) in section.resourses" :key="Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)">
+                   <v-list-item v-for="(resource, i) in section.resources" :key="Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)">
                      <template v-slot:default="{ active, toggle }">
                        <v-list-item-action>
                          <v-checkbox
@@ -37,7 +37,7 @@
                        </v-list-item-action>
 
                        <v-list-item-content>
-                         <v-list-item-title>{{ resourse.name }}</v-list-item-title>
+                         <v-list-item-title>{{ resource }}</v-list-item-title>
                        </v-list-item-content>
                      </template>
                    </v-list-item>
@@ -60,7 +60,7 @@
                        </v-list-item-action>
 
                        <v-list-item-content>
-                         <v-list-item-title>{{ project.name }}</v-list-item-title>
+                         <v-list-item-title>{{ project }}</v-list-item-title>
                        </v-list-item-content>
                      </template>
                    </v-list-item>
@@ -94,6 +94,7 @@ export default {
   },
   mounted () {
     this.curriculum = this.curricula.find(c => c._id == this.$route.params.id)
+    console.log(this.curriculum);
   }
 
 }

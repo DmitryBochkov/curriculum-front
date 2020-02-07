@@ -17,7 +17,7 @@
             <v-subheader>Name</v-subheader>
           </v-col>
           <v-col cols="9">
-            <v-text-field v-model="formData.name" />
+            <v-text-field v-model="name" />
           </v-col>
         </v-row>
         <v-row>
@@ -25,7 +25,7 @@
             <v-subheader>Goal</v-subheader>
           </v-col>
           <v-col cols="9">
-            <v-text-field v-model="formData.goal" />
+            <v-text-field v-model="goal" />
           </v-col>
         </v-row>
         <v-row>
@@ -34,7 +34,7 @@
             <v-textarea
               solo
               name="description"
-              v-model="formData.description"
+              v-model="description"
             />
           </v-col>
         </v-row>
@@ -52,7 +52,9 @@
                       <v-subheader>Name</v-subheader>
                     </v-col>
                     <v-col cols="9">
-                      <v-text-field />
+                      <v-text-field
+                        v-model="section.name"
+                      />
                     </v-col>
                   </v-row>
                   <v-row no-gutters>
@@ -60,7 +62,9 @@
                       <v-subheader>Goal</v-subheader>
                     </v-col>
                     <v-col cols="9">
-                      <v-text-field />
+                      <v-text-field
+                        v-model="section.goal"
+                      />
                     </v-col>
                   </v-row>
 
@@ -68,14 +72,16 @@
                     <v-card-text>
                       <v-row no-gutters>
                         <v-col cols="12">
-                          <v-text-field placeholder="Enter Resource Link" />
+                          <v-text-field
+                            placeholder="Enter Resource Link"
+                            v-model="section.newResource"
+                            @keyup.enter="adNewResource(k)"
+                          />
                         </v-col>
                       </v-row>
                       <v-row no-gutters>
                         <v-col cols="12">
-                          <p>List of resources</p>
-                          <p>List of resources</p>
-                          <p>List of resources</p>
+                          <p v-for="(resource, l) in section.resources" :key="resource + l">{{ resource }}</p>
                         </v-col>
                       </v-row>
                     </v-card-text>
@@ -85,14 +91,16 @@
                     <v-card-text>
                       <v-row no-gutters>
                         <v-col cols="12">
-                          <v-text-field placeholder="Enter Project Link" />
+                          <v-text-field
+                            placeholder="Enter Project Link"
+                            v-model="section.newProject"
+                            @keyup.enter="adNewProject(k)"
+                          />
                         </v-col>
                       </v-row>
                       <v-row no-gutters>
                         <v-col cols="12">
-                          <p>List of Projects</p>
-                          <p>List of Projects</p>
-                          <p>List of Projects</p>
+                          <p v-for="(project, m) in section.projects" :key="project + m">{{ project }}</p>
                         </v-col>
                       </v-row>
                     </v-card-text>
@@ -119,15 +127,13 @@ export default {
   name: 'CreateCurriculum',
   data() {
     return {
-      formData: {
-        name: '',
-        description: '',
-        goal: '',
-      },
+      name: '',
+      description: '',
+      goal: '',
       sections: [{
         name: '',
         goal: '',
-        resourses: [],
+        resources: [],
         projects: [],
       }]
     }
@@ -135,16 +141,37 @@ export default {
   methods: {
     ...mapActions(['postCurriculum']),
     saveCurriculum() {
-      this.postCurriculum(this.formData)
+      const sections = this.sections.map(s => {
+        delete s.newResource
+        delete s.newProject
+        return s
+      })
+      const curriculum = {
+        name: this.name,
+        description: this.description,
+        goal: this.goal,
+        sections: sections,
+      }
+      this.postCurriculum(curriculum)
     },
     addSection() {
       this.sections.push({
         name: '',
         goal: '',
-        resourses: [],
+        resources: [],
+        newResource: '',
         projects: [],
+        newProject: '',
       })
     },
+    adNewResource(index) {
+      this.sections[index].resources.push(this.sections[index].newResource)
+      this.sections[index].newResource = ''
+    },
+    adNewProject(index) {
+      this.sections[index].projects.push(this.sections[index].newProject)
+      this.sections[index].newProject = ''
+    }
   },
 }
 </script>
