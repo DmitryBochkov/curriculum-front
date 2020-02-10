@@ -42,7 +42,7 @@
           <v-col cols="12">
             <div class="curricula-list">
               <v-card
-                class="mx-auto"
+                class="mx-auto section-card"
                 v-for="(section, k) in sections" :key="k"
                 >
                 <v-card-title class="headline">Section {{ k + 1 }}</v-card-title>
@@ -79,9 +79,28 @@
                           />
                         </v-col>
                       </v-row>
-                      <v-row no-gutters>
+                      <v-row no-gutters v-if="section.resources.length">
                         <v-col cols="12">
-                          <p v-for="(resource, l) in section.resources" :key="resource + l">{{ resource }}</p>
+                          <v-card
+                            tile
+                          >
+                            <template v-for="(resource, l) in section.resources">
+                              <v-list-item :key="resource + l">
+                                <v-list-item-content>
+                                  <v-list-item-title>
+                                    {{ resource }}
+                                  </v-list-item-title>
+                                </v-list-item-content>
+                                <v-list-item-action>
+                                  <v-icon @click="deleteItem('resources', k, l)">mdi-close</v-icon>
+                                </v-list-item-action>
+                              </v-list-item>
+                              <v-divider
+                                v-if="l + 1 < section.resources.length"
+                                :key="l"
+                              ></v-divider>
+                            </template>
+                          </v-card>
                         </v-col>
                       </v-row>
                     </v-card-text>
@@ -98,9 +117,29 @@
                           />
                         </v-col>
                       </v-row>
-                      <v-row no-gutters>
+
+                      <v-row no-gutters v-if="section.projects.length">
                         <v-col cols="12">
-                          <p v-for="(project, m) in section.projects" :key="project + m">{{ project }}</p>
+                          <v-card
+                            tile
+                          >
+                            <template v-for="(project, m) in section.projects">
+                              <v-list-item :key="project + m">
+                                <v-list-item-content>
+                                  <v-list-item-title>
+                                    {{ project }}
+                                  </v-list-item-title>
+                                </v-list-item-content>
+                                <v-list-item-action>
+                                  <v-icon @click="deleteItem('projects', k, m)">mdi-close</v-icon>
+                                </v-list-item-action>
+                              </v-list-item>
+                              <v-divider
+                                v-if="m + 1 < section.projects.length"
+                                :key="m"
+                              ></v-divider>
+                            </template>
+                          </v-card>
                         </v-col>
                       </v-row>
                     </v-card-text>
@@ -142,9 +181,10 @@ export default {
     ...mapActions(['postCurriculum']),
     saveCurriculum() {
       const sections = this.sections.map(s => {
-        delete s.newResource
-        delete s.newProject
-        return s
+        let updatedSection = {...s}
+        delete updatedSection.newResource
+        delete updatedSection.newProject
+        return updatedSection
       })
       const curriculum = {
         name: this.name,
@@ -171,7 +211,11 @@ export default {
     adNewProject(index) {
       this.sections[index].projects.push(this.sections[index].newProject)
       this.sections[index].newProject = ''
-    }
+    },
+    deleteItem(type, sectionIandex, itemIndex) {
+      this.sections[sectionIandex][`${type}`].splice(itemIndex, 1)
+    },
+
   },
 }
 </script>
