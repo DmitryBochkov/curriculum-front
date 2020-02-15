@@ -73,10 +73,22 @@
                       <v-row no-gutters>
                         <v-col cols="12">
                           <v-text-field
-                            placeholder="Enter Resource Link"
-                            v-model="section.newResource"
-                            @keyup.enter="adNewResource(k)"
+                            placeholder="Enter Resource Name"
+                            v-model="section.newResource.name"
                           />
+                        </v-col>
+                      </v-row>
+                      <v-row no-gutters>
+                        <v-col cols="12">
+                          <v-text-field
+                            placeholder="Enter Resource Link"
+                            v-model="section.newResource.link"
+                          />
+                        </v-col>
+                      </v-row>
+                      <v-row no-gutters>
+                        <v-col cols="12">
+                          <v-btn @click="adNewResource(k)">Add resource</v-btn>
                         </v-col>
                       </v-row>
                       <v-row no-gutters v-if="section.resources.length">
@@ -88,7 +100,7 @@
                               <v-list-item :key="resource + l">
                                 <v-list-item-content>
                                   <v-list-item-title>
-                                    {{ resource }}
+                                    {{ resource.name }}
                                   </v-list-item-title>
                                 </v-list-item-content>
                                 <v-list-item-action>
@@ -111,10 +123,22 @@
                       <v-row no-gutters>
                         <v-col cols="12">
                           <v-text-field
-                            placeholder="Enter Project Link"
-                            v-model="section.newProject"
-                            @keyup.enter="adNewProject(k)"
+                            placeholder="Enter Project Name"
+                            v-model="section.newProject.name"
                           />
+                        </v-col>
+                      </v-row>
+                      <v-row no-gutters>
+                        <v-col cols="12">
+                          <v-text-field
+                            placeholder="Enter Project Link"
+                            v-model="section.newProject.link"
+                          />
+                        </v-col>
+                      </v-row>
+                      <v-row no-gutters>
+                        <v-col cols="12">
+                          <v-btn @click="adNewProject(k)">Add project</v-btn>
                         </v-col>
                       </v-row>
 
@@ -127,7 +151,7 @@
                               <v-list-item :key="project + m">
                                 <v-list-item-content>
                                   <v-list-item-title>
-                                    {{ project }}
+                                    {{ project.name }}
                                   </v-list-item-title>
                                 </v-list-item-content>
                                 <v-list-item-action>
@@ -174,6 +198,14 @@ export default {
         goal: '',
         resources: [],
         projects: [],
+        newResource: {
+          link: '',
+          name: '',
+        },
+        newProject: {
+          link: '',
+          name: '',
+        },
       }]
     }
   },
@@ -199,18 +231,38 @@ export default {
         name: '',
         goal: '',
         resources: [],
-        newResource: '',
+        newResource: {
+          link: '',
+          name: '',
+        },
         projects: [],
-        newProject: '',
+        newProject: {
+          link: '',
+          name: '',
+        },
       })
     },
     adNewResource(index) {
-      this.sections[index].resources.push(this.sections[index].newResource)
-      this.sections[index].newResource = ''
+      let item = {
+        name: this.sections[index].newResource.name,
+        link: this.sections[index].newResource.link
+      }
+      if (item.name.length) {
+        this.sections[index].resources.push(item)
+        this.sections[index].newResource.name = ''
+        this.sections[index].newResource.link = ''
+      } else {
+        alert('Resource name cannot be blank');
+      }
     },
     adNewProject(index) {
-      this.sections[index].projects.push(this.sections[index].newProject)
-      this.sections[index].newProject = ''
+      let item = {
+        name: this.sections[index].newProject.name,
+        link: this.sections[index].newProject.link
+      }
+      this.sections[index].projects.push(item)
+      this.sections[index].newProject.name = ''
+      this.sections[index].newProject.link = ''
     },
     deleteItem(type, sectionIandex, itemIndex) {
       this.sections[sectionIandex][`${type}`].splice(itemIndex, 1)
