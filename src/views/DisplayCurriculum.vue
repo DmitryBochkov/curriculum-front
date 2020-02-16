@@ -1,5 +1,5 @@
 <template>
-  <v-row no-gutters class="upsert-curriculum-page">
+  <v-row no-gutters class="display-curriculum-page">
     <v-col
       lg="6"
       offset-lg="3"
@@ -9,8 +9,14 @@
 
      <v-row>
        <v-col>
-         <h1>{{ curriculum.name }}</h1>
-         <p>{{ curriculum.description }}</p>
+         <h1 class="editable-text">
+           {{ curriculum.name }}
+           <v-icon color="gray lighten-1" >mdi-pencil-box-outline</v-icon>
+         </h1>
+         <p class="editable-text">
+           {{ curriculum.description }}
+           <v-icon color="gray lighten-1" >mdi-pencil-box-outline</v-icon>
+         </p>
        </v-col>
      </v-row>
 

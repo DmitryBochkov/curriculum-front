@@ -14,10 +14,17 @@
       <v-form class="upsert-form">
         <v-row>
           <v-col cols="3">
-            <v-subheader>Name</v-subheader>
+            <v-subheader>Name *</v-subheader>
           </v-col>
           <v-col cols="9">
-            <v-text-field v-model="name" />
+            <v-text-field
+              v-model="name"
+              :rules="nameRules"
+            />
+            <!-- <validation-provider rules="required" v-slot="{ errors }">
+              <v-text-field v-model="name" />
+              <span class="error-text">{{ errors[0] }}</span>
+            </validation-provider> -->
           </v-col>
         </v-row>
         <v-row>
@@ -49,11 +56,12 @@
                 <v-card-text>
                   <v-row no-gutters>
                     <v-col cols="3">
-                      <v-subheader>Name</v-subheader>
+                      <v-subheader>Name *</v-subheader>
                     </v-col>
                     <v-col cols="9">
                       <v-text-field
                         v-model="section.name"
+                        :rules="nameRules"
                       />
                     </v-col>
                   </v-row>
@@ -75,7 +83,15 @@
                           <v-text-field
                             placeholder="Enter Resource Name"
                             v-model="section.newResource.name"
+                            :rules="nameRules"
                           />
+                          <!-- <validation-provider rules="required" v-slot="{ errors }">
+                            <v-text-field
+                            placeholder="Enter Resource Name"
+                            v-model="section.newResource.name"
+                            />
+                            <span class="error-text">{{ errors[0] }}</span>
+                          </validation-provider> -->
                         </v-col>
                       </v-row>
                       <v-row no-gutters>
@@ -83,7 +99,18 @@
                           <v-text-field
                             placeholder="Enter Resource Link"
                             v-model="section.newResource.link"
+                            :rules="urlRules"
                           />
+                          <!-- <ValidationProvider
+                            :rules="{ regex: /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b/i }"
+                            v-slot="{ errors }">
+                            <v-text-field
+                            placeholder="Enter Resource Link"
+                            v-model="section.newResource.link"
+                            />
+                            <span class="error-text">{{ errors[0] }}</span>
+                          </ValidationProvider> -->
+
                         </v-col>
                       </v-row>
                       <v-row no-gutters>
@@ -208,6 +235,12 @@ export default {
   data() {
     return {
       name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+      ],
+      urlRules: [
+        v => /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b/gi.test(v) || 'Must be valid URL',
+      ],
       description: '',
       goal: '',
       sections: [{
