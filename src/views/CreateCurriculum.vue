@@ -181,6 +181,23 @@
         </v-row>
       </v-form>
     </v-col>
+
+    <v-snackbar
+      v-model="snackbar"
+      :right="true"
+      :top="true"
+      :timeout="5000"
+      >
+        {{ snackbarText }}
+        <v-btn
+        color="pink"
+        snackbar
+        @click="snackbar = false"
+        >
+        Close
+      </v-btn>
+    </v-snackbar>
+
   </v-row>
 </template>
 
@@ -206,7 +223,9 @@ export default {
           link: '',
           name: '',
         },
-      }]
+      }],
+      snackbar: false,
+      snackbarText: '',
     }
   },
   methods: {
@@ -252,7 +271,8 @@ export default {
         this.sections[index].newResource.name = ''
         this.sections[index].newResource.link = ''
       } else {
-        alert('Resource name cannot be blank');
+        this.snackbarText = 'Resource name cannot be blank'
+        this.snackbar = true
       }
     },
     adNewProject(index) {
@@ -260,9 +280,14 @@ export default {
         name: this.sections[index].newProject.name,
         link: this.sections[index].newProject.link
       }
-      this.sections[index].projects.push(item)
-      this.sections[index].newProject.name = ''
-      this.sections[index].newProject.link = ''
+      if (item.name.length) {
+        this.sections[index].projects.push(item)
+        this.sections[index].newProject.name = ''
+        this.sections[index].newProject.link = ''
+      } else {
+        this.snackbarText = 'Project name cannot be blank'
+        this.snackbar = true
+      }
     },
     deleteItem(type, sectionIandex, itemIndex) {
       this.sections[sectionIandex][`${type}`].splice(itemIndex, 1)
