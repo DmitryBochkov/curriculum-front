@@ -8,10 +8,10 @@
       <v-btn to="/" text>
         Home
       </v-btn>
-      <v-btn to="/curricula" text>
+      <v-btn to="/curricula" text exact>
         View All
       </v-btn>
-      <v-btn to="/curricula/create" text>
+      <v-btn to="/curricula/create" text exact>
         Create
       </v-btn>
     </v-toolbar-items>

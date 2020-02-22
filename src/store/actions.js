@@ -9,6 +9,7 @@ export default {
   },
   async postCurriculum({commit}, curriculum) {
     const res = await axios.post(API_URL, curriculum)
-    console.log(res);
+    commit('appendCurriculum', res.data)
+    return res.data._id
   }
 }

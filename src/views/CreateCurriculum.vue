@@ -11,202 +11,20 @@
         <v-btn @click="saveCurriculum">Save</v-btn>
       </div>
 
-      <v-form class="upsert-form">
-        <v-row>
-          <v-col cols="3">
-            <v-subheader>Name *</v-subheader>
-          </v-col>
-          <v-col cols="9">
-            <v-text-field
-              v-model="name"
-              :rules="nameRules"
-            />
-            <!-- <validation-provider rules="required" v-slot="{ errors }">
-              <v-text-field v-model="name" />
-              <span class="error-text">{{ errors[0] }}</span>
-            </validation-provider> -->
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="3">
-            <v-subheader>Goal</v-subheader>
-          </v-col>
-          <v-col cols="9">
-            <v-text-field v-model="goal" />
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12">
-            <v-label>Description</v-label>
-            <v-textarea
-              solo
-              name="description"
-              v-model="description"
-            />
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12">
-            <div class="curricula-list">
-              <v-card
-                class="mx-auto section-card"
-                v-for="(section, k) in sections" :key="k"
-                >
-                <v-card-title class="headline">Section {{ k + 1 }}</v-card-title>
-                <v-card-text>
-                  <v-row no-gutters>
-                    <v-col cols="3">
-                      <v-subheader>Name *</v-subheader>
-                    </v-col>
-                    <v-col cols="9">
-                      <v-text-field
-                        v-model="section.name"
-                        :rules="nameRules"
-                      />
-                    </v-col>
-                  </v-row>
-                  <v-row no-gutters>
-                    <v-col cols="3">
-                      <v-subheader>Goal</v-subheader>
-                    </v-col>
-                    <v-col cols="9">
-                      <v-text-field
-                        v-model="section.goal"
-                      />
-                    </v-col>
-                  </v-row>
+      <MainForm
+        :name="name"
+        :goal="goal"
+        :description="description"
+        :nameRules="nameRules"
+        :urlRules="urlRules"
+        :sections="sections"
+        :addSection="addSection"
+        :addNewResource="addNewResource"
+        :addNewProject="addNewProject"
+        :deleteItem="deleteItem"
+      />
 
-                  <v-card class="mt-10">
-                    <v-card-text>
-                      <v-row no-gutters>
-                        <v-col cols="12">
-                          <v-text-field
-                            placeholder="Enter Resource Name"
-                            v-model="section.newResource.name"
-                            :rules="nameRules"
-                          />
-                          <!-- <validation-provider rules="required" v-slot="{ errors }">
-                            <v-text-field
-                            placeholder="Enter Resource Name"
-                            v-model="section.newResource.name"
-                            />
-                            <span class="error-text">{{ errors[0] }}</span>
-                          </validation-provider> -->
-                        </v-col>
-                      </v-row>
-                      <v-row no-gutters>
-                        <v-col cols="12">
-                          <v-text-field
-                            placeholder="Enter Resource Link"
-                            v-model="section.newResource.link"
-                            :rules="urlRules"
-                          />
-                          <!-- <ValidationProvider
-                            :rules="{ regex: /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b/i }"
-                            v-slot="{ errors }">
-                            <v-text-field
-                            placeholder="Enter Resource Link"
-                            v-model="section.newResource.link"
-                            />
-                            <span class="error-text">{{ errors[0] }}</span>
-                          </ValidationProvider> -->
 
-                        </v-col>
-                      </v-row>
-                      <v-row no-gutters>
-                        <v-col cols="12">
-                          <v-btn @click="adNewResource(k)">Add resource</v-btn>
-                        </v-col>
-                      </v-row>
-                      <v-row no-gutters v-if="section.resources.length">
-                        <v-col cols="12">
-                          <v-card
-                            tile
-                          >
-                            <template v-for="(resource, l) in section.resources">
-                              <v-list-item :key="resource + l">
-                                <v-list-item-content>
-                                  <v-list-item-title>
-                                    {{ resource.name }}
-                                  </v-list-item-title>
-                                </v-list-item-content>
-                                <v-list-item-action>
-                                  <v-icon @click="deleteItem('resources', k, l)">mdi-close</v-icon>
-                                </v-list-item-action>
-                              </v-list-item>
-                              <v-divider
-                                v-if="l + 1 < section.resources.length"
-                                :key="l"
-                              ></v-divider>
-                            </template>
-                          </v-card>
-                        </v-col>
-                      </v-row>
-                    </v-card-text>
-                  </v-card>
-
-                  <v-card class="mt-10">
-                    <v-card-text>
-                      <v-row no-gutters>
-                        <v-col cols="12">
-                          <v-text-field
-                            placeholder="Enter Project Name"
-                            v-model="section.newProject.name"
-                          />
-                        </v-col>
-                      </v-row>
-                      <v-row no-gutters>
-                        <v-col cols="12">
-                          <v-text-field
-                            placeholder="Enter Project Link"
-                            v-model="section.newProject.link"
-                          />
-                        </v-col>
-                      </v-row>
-                      <v-row no-gutters>
-                        <v-col cols="12">
-                          <v-btn @click="adNewProject(k)">Add project</v-btn>
-                        </v-col>
-                      </v-row>
-
-                      <v-row no-gutters v-if="section.projects.length">
-                        <v-col cols="12">
-                          <v-card
-                            tile
-                          >
-                            <template v-for="(project, m) in section.projects">
-                              <v-list-item :key="project + m">
-                                <v-list-item-content>
-                                  <v-list-item-title>
-                                    {{ project.name }}
-                                  </v-list-item-title>
-                                </v-list-item-content>
-                                <v-list-item-action>
-                                  <v-icon @click="deleteItem('projects', k, m)">mdi-close</v-icon>
-                                </v-list-item-action>
-                              </v-list-item>
-                              <v-divider
-                                v-if="m + 1 < section.projects.length"
-                                :key="m"
-                              ></v-divider>
-                            </template>
-                          </v-card>
-                        </v-col>
-                      </v-row>
-                    </v-card-text>
-                  </v-card>
-                </v-card-text>
-              </v-card>
-            </div>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-col cols="12">
-            <v-btn @click="addSection">Add Section</v-btn>
-          </v-col>
-        </v-row>
-      </v-form>
     </v-col>
 
     <v-snackbar
@@ -230,6 +48,10 @@
 
 <script>
 import { mapActions } from 'vuex'
+import MainForm from '@/components/CreateForm/MainForm'
+
+const urlPattern = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b/gi
+
 export default {
   name: 'CreateCurriculum',
   data() {
@@ -239,7 +61,9 @@ export default {
         v => !!v || 'Name is required',
       ],
       urlRules: [
-        v => /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b/gi.test(v) || 'Must be valid URL',
+        v => {
+          return (v.length < 1 || urlPattern.test(v)) || 'Must be valid URL'
+        },
       ],
       description: '',
       goal: '',
@@ -261,22 +85,28 @@ export default {
       snackbarText: '',
     }
   },
+  components: {
+    MainForm,
+  },
   methods: {
     ...mapActions(['postCurriculum']),
-    saveCurriculum() {
-      const sections = this.sections.map(s => {
-        let updatedSection = {...s}
-        delete updatedSection.newResource
-        delete updatedSection.newProject
-        return updatedSection
-      })
-      const curriculum = {
-        name: this.name,
-        description: this.description,
-        goal: this.goal,
-        sections: sections,
+    async saveCurriculum() {
+      if (this.$refs['curriculum-form'].validate()) {
+        const sections = this.sections.map(s => {
+          let updatedSection = {...s}
+          delete updatedSection.newResource
+          delete updatedSection.newProject
+          return updatedSection
+        })
+        const curriculum = {
+          name: this.name,
+          description: this.description,
+          goal: this.goal,
+          sections: sections,
+        }
+        const savedCurriculumId = await this.postCurriculum(curriculum)
+        this.$router.push({ name: 'curriculum', params: { id: savedCurriculumId } })
       }
-      this.postCurriculum(curriculum)
     },
     addSection() {
       this.sections.push({
@@ -294,31 +124,40 @@ export default {
         },
       })
     },
-    adNewResource(index) {
+    addNewResource(index) {
       let item = {
         name: this.sections[index].newResource.name,
         link: this.sections[index].newResource.link
       }
-      if (item.name.length) {
+      const nameCheck = item.name.length
+      const urlCheck = item.link.length < 1 || urlPattern.test(item.link)
+
+      if (nameCheck && urlCheck) {
         this.sections[index].resources.push(item)
         this.sections[index].newResource.name = ''
         this.sections[index].newResource.link = ''
       } else {
-        this.snackbarText = 'Resource name cannot be blank'
+        const nameCheckMsg = nameCheck ? '' : 'Name cannot be blank.'
+        const urlCheckMsg = urlCheck ? '' : ' URL must be valid.'
+        this.snackbarText = `${nameCheckMsg}${urlCheckMsg}`
         this.snackbar = true
       }
     },
-    adNewProject(index) {
+    addNewProject(index) {
       let item = {
         name: this.sections[index].newProject.name,
         link: this.sections[index].newProject.link
       }
-      if (item.name.length) {
+      const nameCheck = item.name.length
+      const urlCheck = item.link.length < 1 || urlPattern.test(item.link)
+      if (nameCheck && urlCheck) {
         this.sections[index].projects.push(item)
         this.sections[index].newProject.name = ''
         this.sections[index].newProject.link = ''
       } else {
-        this.snackbarText = 'Project name cannot be blank'
+        const nameCheckMsg = nameCheck ? '' : 'Name cannot be blank.'
+        const urlCheckMsg = urlCheck ? '' : ' URL must be valid.'
+        this.snackbarText = `${nameCheckMsg}${urlCheckMsg}`
         this.snackbar = true
       }
     },
