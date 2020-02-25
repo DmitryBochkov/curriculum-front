@@ -11,8 +11,11 @@
       <v-col cols="9" :class="{ 'form-group--error': $v.name.$error }">
         <v-text-field
           v-model.trim="$v.name.$model"
+          :error-messages="nameErrors"
+          required
+          @input="$v.name.$touch()"
+          @blur="$v.name.$touch()"
         />
-        <div class="error" v-if="!$v.name.required">Field is required</div>
       </v-col>
     </v-row>
     <v-row>
@@ -39,6 +42,9 @@
       :addNewResource="addNewResource"
       :addNewProject="addNewProject"
       :deleteItem="deleteItem"
+      :v="$v"
+      :sectionNameErrors="sectionNameErrors"
+      :sectionUrlErrors="sectionUrlErrors"
     />
 
     <v-row>
@@ -52,7 +58,7 @@
 <script>
 import { mapActions, mapMutations } from 'vuex'
 import FormSections from '@/components/CreateForm/FormSections'
-import { required, url } from 'vuelidate/lib/validators'
+import { required, maxLength, url } from 'vuelidate/lib/validators'
 
 export default {
   data () {
@@ -73,25 +79,50 @@ export default {
           link: '',
           name: ''
         }
-      }],
+      }]
     }
   },
   validations: {
     name: {
       required,
+      maxLength: maxLength(20)
     },
     link: {
       url
+    },
+    sections: {
+      $each: {
+        name: {
+          required,
+          maxLength: maxLength(20)
+        },
+        goal: {},
+        resources: {},
+        projects: {},
+        newResource: {
+          link: {
+            url
+          },
+          name: {}
+        },
+        newProject: {
+          link: {
+            url
+          },
+          name: {}
+        }
+      }
     }
   },
   components: {
-    FormSections,
+    FormSections
   },
   methods: {
     ...mapActions(['postCurriculum']),
     ...mapMutations(['updateSnackbar']),
     async saveCurriculum () {
-      if (this.$refs['curriculum-form'].validate()) {
+      this.$v.$touch()
+      if (!this.$v.$anyError) {
         const sections = this.sections.map(s => {
           let updatedSection = { ...s }
           delete updatedSection.newResource
@@ -130,21 +161,21 @@ export default {
         link: this.sections[index].newResource.link
       }
       const nameCheck = item.name.length
-      const urlCheck = item.link.length < 1 || urlPattern.test(item.link)
+      // const urlCheck = item.link.length < 1 || urlPattern.test(item.link)
 
-      if (nameCheck && urlCheck) {
-        this.sections[index].resources.push(item)
-        this.sections[index].newResource.name = ''
-        this.sections[index].newResource.link = ''
+      this.sections[index].resources.push(item)
+      this.sections[index].newResource.name = ''
+      this.sections[index].newResource.link = ''
+      if (nameCheck) {
       } else {
-        const nameCheckMsg = nameCheck ? '' : 'Name cannot be blank.'
-        const urlCheckMsg = urlCheck ? '' : ' URL must be valid.'
-        const snackbarText = `${nameCheckMsg}${urlCheckMsg}`
-        this.updateSnackbar({
-          message: snackbarText,
-          show: true,
-          variant: 'error',
-        })
+        // const nameCheckMsg = nameCheck ? '' : 'Name cannot be blank.'
+        // const urlCheckMsg = urlCheck ? '' : ' URL must be valid.'
+        // const snackbarText = `${nameCheckMsg}${urlCheckMsg}`
+        // this.updateSnackbar({
+        //   message: snackbarText,
+        //   show: true,
+        //   variant: 'error',
+        // })
       }
     },
     addNewProject (index) {
@@ -153,26 +184,48 @@ export default {
         link: this.sections[index].newProject.link
       }
       const nameCheck = item.name.length
-      const urlCheck = item.link.length < 1 || urlPattern.test(item.link)
-      if (nameCheck && urlCheck) {
+      // const urlCheck = item.link.length < 1 || urlPattern.test(item.link)
+      if (nameCheck) {
         this.sections[index].projects.push(item)
         this.sections[index].newProject.name = ''
         this.sections[index].newProject.link = ''
       } else {
-        const nameCheckMsg = nameCheck ? '' : 'Name cannot be blank.'
-        const urlCheckMsg = urlCheck ? '' : ' URL must be valid.'
-        const snackbarText = `${nameCheckMsg}${urlCheckMsg}`
-        this.updateSnackbar({
-          message: snackbarText,
-          show: true,
-          variant: 'error',
-        })
+        // const nameCheckMsg = nameCheck ? '' : 'Name cannot be blank.'
+        // const urlCheckMsg = urlCheck ? '' : ' URL must be valid.'
+        // const snackbarText = `${nameCheckMsg}${urlCheckMsg}`
+        // this.updateSnackbar({
+        //   message: snackbarText,
+        //   show: true,
+        //   variant: 'error',
+        // })
       }
     },
     deleteItem (type, sectionIandex, itemIndex) {
       this.sections[sectionIandex][`${type}`].splice(itemIndex, 1)
+    },
+    sectionNameErrors (i) {
+      const errors = []
+      if (!this.$v.sections.$each.$iter[i].name.$dirty) return errors
+      !this.$v.sections.$each.$iter[i].name.maxLength && errors.push('Name must be at most 20 characters long.')
+      !this.$v.sections.$each.$iter[i].name.required && errors.push('Name is required.')
+      return errors
+    },
+    sectionUrlErrors (i, type) {
+      const errors = []
+      if (!this.$v.sections.$each.$iter[i][`new${type}`].link.$model.length) return errors
+      !this.$v.sections.$each.$iter[i][`new${type}`].link.url && errors.push('Must be a valid url.')
+      return errors
     }
 
+  },
+  computed: {
+    nameErrors () {
+      const errors = []
+      if (!this.$v.name.$dirty) return errors
+      !this.$v.name.maxLength && errors.push('Name must be at most 20 characters long.')
+      !this.$v.name.required && errors.push('Name is required.')
+      return errors
+    }
   }
 }
 </script>

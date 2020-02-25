@@ -4,7 +4,7 @@
       <div class="curricula-list">
         <v-card
           class="mx-auto section-card"
-          v-for="(section, k) in sections" :key="k"
+          v-for="(section, k) in v.sections.$each.$iter" :key="k"
           >
           <v-card-title class="headline">Section {{ k + 1 }}</v-card-title>
           <v-card-text>
@@ -14,7 +14,11 @@
               </v-col>
               <v-col cols="9">
                 <v-text-field
-                  v-model="section.name"
+                  v-model="section.name.$model"
+                  :error-messages="sectionNameErrors(parseInt(k))"
+                  required
+                  @input="section.name.$touch()"
+                  @blur="section.name.$touch()"
                 />
               </v-col>
             </v-row>
@@ -24,7 +28,7 @@
               </v-col>
               <v-col cols="9">
                 <v-text-field
-                  v-model="section.goal"
+                  v-model="section.goal.$model"
                 />
               </v-col>
             </v-row>
@@ -35,7 +39,7 @@
                   <v-col cols="12">
                     <v-text-field
                       placeholder="Enter Resource Name"
-                      v-model="section.newResource.name"
+                      v-model="section.newResource.name.$model"
                     />
                   </v-col>
                 </v-row>
@@ -43,7 +47,10 @@
                   <v-col cols="12">
                     <v-text-field
                       placeholder="Enter Resource Link"
-                      v-model="section.newResource.link"
+                      v-model="section.newResource.link.$model"
+                      :error-messages="sectionUrlErrors(parseInt(k), 'Resource')"
+                      @input="section.newResource.link.$touch()"
+                      @blur="section.newResource.link.$touch()"
                     />
 
                   </v-col>
@@ -53,12 +60,12 @@
                     <v-btn @click="addNewResource(k)">Add resource</v-btn>
                   </v-col>
                 </v-row>
-                <v-row no-gutters v-if="section.resources.length">
+                <v-row no-gutters v-if="section.resources.$model.length">
                   <v-col cols="12">
                     <v-card
                       tile
                     >
-                      <template v-for="(resource, l) in section.resources">
+                      <template v-for="(resource, l) in section.resources.$model">
                         <v-list-item :key="resource + l">
                           <v-list-item-content>
                             <v-list-item-title>
@@ -86,7 +93,7 @@
                   <v-col cols="12">
                     <v-text-field
                       placeholder="Enter Project Name"
-                      v-model="section.newProject.name"
+                      v-model="section.newProject.name.$model"
                     />
                   </v-col>
                 </v-row>
@@ -94,7 +101,10 @@
                   <v-col cols="12">
                     <v-text-field
                       placeholder="Enter Project Link"
-                      v-model="section.newProject.link"
+                      v-model="section.newProject.link.$model"
+                      :error-messages="sectionUrlErrors(parseInt(k), 'Project')"
+                      @input="section.newProject.link.$touch()"
+                      @blur="section.newProject.link.$touch()"
                     />
                   </v-col>
                 </v-row>
@@ -104,12 +114,12 @@
                   </v-col>
                 </v-row>
 
-                <v-row no-gutters v-if="section.projects.length">
+                <v-row no-gutters v-if="section.projects.$model.length">
                   <v-col cols="12">
                     <v-card
                       tile
                     >
-                      <template v-for="(project, m) in section.projects">
+                      <template v-for="(project, m) in section.projects.$model">
                         <v-list-item :key="project + m">
                           <v-list-item-content>
                             <v-list-item-title>
@@ -144,6 +154,9 @@ export default {
     addNewResource: Function,
     addNewProject: Function,
     deleteItem: Function,
-  },
+    sectionNameErrors: Function,
+    sectionUrlErrors: Function,
+    v: Object
+  }
 }
 </script>
