@@ -24,8 +24,8 @@
        <v-col>
          <v-expansion-panels multiple>
 
-           <v-expansion-panel v-for="(section, index) in curriculum.sections" :key="Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)">
-             <v-expansion-panel-header>Section {{ index + 1 }} - {{ section.name }}</v-expansion-panel-header>
+           <v-expansion-panel v-for="(section, index) in curriculum.sections" :key="Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + index">
+             <v-expansion-panel-header>Section {{ parseInt(index) + 1 }} - {{ section.name }}</v-expansion-panel-header>
              <v-expansion-panel-content>
                <v-list>
                  <v-subheader>Resources</v-subheader>
@@ -33,12 +33,12 @@
                    multiple
                  >
                    <v-list-item v-for="(resource, i) in section.resources" :key="Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)">
-                     <template v-slot:default="{ active, toggle }">
+                     <template>
                        <v-list-item-action>
                          <v-checkbox
-                           v-model="active"
                            color="primary"
-                           @click="toggle"
+                           v-model="resource.isCompleted"
+                           @change="toggleComplete('resources', index, i)"
                          ></v-checkbox>
                        </v-list-item-action>
 
@@ -56,14 +56,12 @@
                    multiple
                  >
                    <v-list-item v-for="(project, j) in section.projects" :key="Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)">
-                     <template v-slot:default="{ active, toggle }">
-                       <v-list-item-action>
-                         <v-checkbox
-                           v-model="active"
-                           color="primary"
-                           @click="toggle"
-                         ></v-checkbox>
-                       </v-list-item-action>
+                     <template>
+                       <v-checkbox
+                       color="primary"
+                       v-model="project.isCompleted"
+                       @change="toggleComplete('projects', index, j)"
+                       ></v-checkbox>
 
                        <v-list-item-content>
                          <v-list-item-title>{{ project.name }}</v-list-item-title>
@@ -84,7 +82,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'DisplayCurriculum',
   data () {
@@ -98,9 +96,22 @@ export default {
       'curricula'
     ])
   },
+  methods: {
+    ...mapActions({
+      patchCurriculum: 'patchCurriculum'
+    }),
+    toggleComplete (type, sectionIndex, typeIndex) {
+      // console.log(this.curriculum.sections[sectionIndex][type][typeIndex]);
+      const payload = {
+        body: this.curriculum.sections,
+        curriculumId: this.curriculum._id
+      }
+      this.patchCurriculum(payload)
+    }
+  },
   mounted () {
     this.curriculum = this.curricula.find(c => c._id == this.$route.params.id)
-    console.log(this.curriculum);
+    // console.log(this.curriculum);
   }
 
 }
