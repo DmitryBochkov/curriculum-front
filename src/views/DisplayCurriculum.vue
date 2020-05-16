@@ -98,15 +98,18 @@ export default {
   },
   methods: {
     ...mapActions({
-      patchCurriculum: 'patchCurriculum'
+      patchType: 'patchType'
     }),
-    toggleComplete (type, sectionIndex, typeIndex) {
+    toggleComplete(type, sectionIndex, typeIndex) {
       // console.log(this.curriculum.sections[sectionIndex][type][typeIndex]);
+      const section = this.curriculum.sections[sectionIndex]
       const payload = {
-        body: this.curriculum.sections,
-        curriculumId: this.curriculum._id
+        curriculum: this.curriculum,
+        type,
+        sectionId: section._id,
+        item: section[type][typeIndex],
       }
-      this.patchCurriculum(payload)
+      this.patchType(payload)
     }
   },
   mounted () {
