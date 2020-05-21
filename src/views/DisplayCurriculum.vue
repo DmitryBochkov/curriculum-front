@@ -9,14 +9,35 @@
 
      <v-row>
        <v-col>
-         <h1 class="editable-text">
+         <h1
+           class="editable-text"
+           v-if="isEditField !== 'name'"
+          >
            {{ curriculum.name }}
-           <v-icon color="gray lighten-1" >mdi-pencil-box-outline</v-icon>
+           <v-icon
+             color="gray lighten-1"
+             @click="toggleEdit('name')"
+            >mdi-pencil-box-outline</v-icon>
          </h1>
-         <p class="editable-text">
+         <v-text-field v-else v-model="curriculum.name">
+           <template v-slot:append-outer>
+             <v-btn outlined small color="primary" class="mr-1" @click="saveEdit('name')">Save</v-btn>
+             <v-btn outlined small @click="cancelEdit">Cancel</v-btn>
+           </template>
+
+         </v-text-field>
+
+         <p class="editable-text" v-if="isEditField !== 'description'">
            {{ curriculum.description }}
-           <v-icon color="gray lighten-1" >mdi-pencil-box-outline</v-icon>
+           <v-icon color="gray lighten-1" @click="toggleEdit('description')">mdi-pencil-box-outline</v-icon>
          </p>
+         <v-text-field v-else v-model="curriculum.description">
+           <template v-slot:append-outer>
+             <v-btn outlined small color="primary" class="mr-1" @click="saveEdit('description')">Save</v-btn>
+             <v-btn outlined small @click="cancelEdit">Cancel</v-btn>
+           </template>
+
+         </v-text-field>
        </v-col>
      </v-row>
 
@@ -28,7 +49,13 @@
              <v-expansion-panel-header>Section {{ parseInt(index) + 1 }} - {{ section.name }}</v-expansion-panel-header>
              <v-expansion-panel-content>
                <v-list>
-                 <v-subheader>Resources</v-subheader>
+                 <v-subheader>
+                   Resources
+                   <v-icon
+                     color="success lighten-1"
+                     class="ml-1"
+                    >mdi-plus-box-outline</v-icon>
+                 </v-subheader>
                  <v-list-item-group
                    multiple
                  >
@@ -43,7 +70,14 @@
                        </v-list-item-action>
 
                        <v-list-item-content>
-                         <v-list-item-title>{{ resource.name }}</v-list-item-title>
+                         <v-list-item-title class="editable-text">
+                           <router-link to="/">{{ resource.name }}</router-link>
+                           <v-icon
+                             color="gray lighten-1"
+                             class="ml-1"
+                             @click="toggleEdit('name')"
+                            >mdi-pencil-box-outline</v-icon>
+                         </v-list-item-title>
                        </v-list-item-content>
                      </template>
                    </v-list-item>
@@ -51,7 +85,13 @@
                </v-list>
 
                <v-list>
-                 <v-subheader>Porojects</v-subheader>
+                 <v-subheader>
+                   Projects
+                   <v-icon
+                     color="success lighten-1"
+                     class="ml-1"
+                    >mdi-plus-box-outline</v-icon>
+                 </v-subheader>
                  <v-list-item-group
                    multiple
                  >
@@ -64,7 +104,14 @@
                        ></v-checkbox>
 
                        <v-list-item-content>
-                         <v-list-item-title>{{ project.name }}</v-list-item-title>
+                         <v-list-item-title class="editable-text">
+                           <router-link to="/">{{ project.name }}</router-link>
+                           <v-icon
+                             color="gray lighten-1"
+                             class="ml-1"
+                             @click="toggleEdit('name')"
+                            >mdi-pencil-box-outline</v-icon>
+                         </v-list-item-title>
                        </v-list-item-content>
                      </template>
                    </v-list-item>
@@ -88,7 +135,8 @@ export default {
   data () {
     return {
       curriculaId: this.$route.params.id,
-      curriculum: {}
+      curriculum: {},
+      isEditField: ''
     }
   },
   computed: {
@@ -98,18 +146,37 @@ export default {
   },
   methods: {
     ...mapActions({
-      patchType: 'patchType'
+      patchType: 'patchType',
+      patchCurriculum: 'patchCurriculum'
     }),
-    toggleComplete(type, sectionIndex, typeIndex) {
+    toggleComplete (type, sectionIndex, typeIndex) {
       // console.log(this.curriculum.sections[sectionIndex][type][typeIndex]);
       const section = this.curriculum.sections[sectionIndex]
       const payload = {
         curriculum: this.curriculum,
         type,
         sectionId: section._id,
-        item: section[type][typeIndex],
+        item: section[type][typeIndex]
       }
       this.patchType(payload)
+    },
+    toggleEdit (field) {
+      this.isEditField = field
+    },
+    cancelEdit () {
+      this.isEditField = ''
+    },
+    saveEdit (field) {
+      const { _id } = this.curriculum
+      const body = {
+        [field]: this.curriculum[field]
+      }
+      const payload = {
+        curriculumId: _id,
+        body: body
+      }
+      this.patchCurriculum(payload)
+      this.isEditField = ''
     }
   },
   mounted () {
