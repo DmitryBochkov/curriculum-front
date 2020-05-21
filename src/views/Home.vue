@@ -1,13 +1,26 @@
 <template>
 
   <v-row no-gutters class="home-page">
-    <v-col
-      lg="6"
-      offset-lg="3"
-      sm="8"
-      offset-sm="2"
-    >
-      <h1>Welcome.</h1>
-    </v-col>
+    <HomeHeader />
+    <SecondSection />
+    <ThirdSection />
+
+    <Footer />
   </v-row>
 </template>
+
+<script>
+import HomeHeader from '@/components/Home/Header'
+import SecondSection from '@/components/Home/SecondSection'
+import ThirdSection from '@/components/Home/ThirdSection'
+import Footer from '@/components/Footer'
+export default {
+  name: 'Home',
+  components: {
+    HomeHeader,
+    SecondSection,
+    ThirdSection,
+    Footer
+  }
+}
+</script>

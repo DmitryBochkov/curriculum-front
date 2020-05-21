@@ -2,7 +2,9 @@
   <v-form class="upsert-form" ref="curriculum-form">
     <div class="page-header">
       <h1>Create Curriculum</h1>
-      <v-btn @click="saveCurriculum">Save</v-btn>
+      <v-btn light
+      color="primary"
+      @click="saveCurriculum">Save</v-btn>
     </div>
     <v-row>
       <v-col cols="3">
